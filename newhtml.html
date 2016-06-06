@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>КрестикиНолики</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <style>
+            
+ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}
+
+body {
+  background-image: url("wall.jpg");
+}
+.actions {
+  text-align: center;
+}
+.ai {
+  background-image: url("mgup.png");
+}
+.container {
+  margin: 50px auto;
+  width: 300px;
+}
+.cell {
+  background-color: white;
+  border: 2px solid black;
+  float: left;
+  height: 96px;
+  width: 96px;
+}
+.cell:hover {
+  border-color: red;
+}
+.player {
+  background-image: url("dota.png") ;
+}
+        </style>
+        <script>
+            var t = new Array(9);
+            var n = 1;
+/*
+function ai() {
+  var id = Math.floor(Math.random() * 9);
+  t[id] ? ai() : move(id, 'ai');
+}
+*/
+function checkEnd() {
+  if (t[0]=='ai' && t[1]=='ai' && t[2]=='ai' || t[0]=='player' && t[1]=='player' && t[2]=='player')  return true;
+  if (t[3]=='ai' && t[4]=='ai' && t[5]=='ai' || t[3]=='player' && t[4]=='player' && t[5]=='player')  return true;
+  if (t[6]=='ai' && t[7]=='ai' && t[8]=='ai' || t[6]=='player' && t[7]=='player' && t[8]=='player')  return true;
+  if (t[0]=='ai' && t[3]=='ai' && t[6]=='ai' || t[0]=='player' && t[3]=='player' && t[6]=='player')  return true;
+  if (t[1]=='ai' && t[4]=='ai' && t[7]=='ai' || t[1]=='player' && t[4]=='player' && t[7]=='player')  return true;
+  if (t[2]=='ai' && t[5]=='ai' && t[8]=='ai' || t[2]=='player' && t[5]=='player' && t[8]=='player')  return true;
+  if (t[0]=='ai' && t[4]=='ai' && t[8]=='ai' || t[0]=='player' && t[4]=='player' && t[8]=='player')  return true;
+  if (t[2]=='ai' && t[4]=='ai' && t[6]=='ai' || t[2]=='player' && t[4]=='player' && t[6]=='player')  return true;
+  if(t[0] && t[1] && t[2] && t[3] && t[4] && t[5] && t[6] && t[7] && t[8]) return true;
+}
+
+function move(id, role) {
+  if(t[id]) return false;
+  t[id] = role;
+  document.getElementById(id).className = 'cell ' + role;
+  !checkEnd() ? null : reset();
+}
+
+function reset() {
+  alert("Игра окончена!");
+  location.reload();
+}
+function select(id){
+    if (1== n%2) {move(id, 'player');}
+    else {move(id, 'ai');}
+    n++;
+}
+        </script>
+        
+    </head>
+    <body>
+        <div class="container">
+    <div class="table">
+        <div class="cell" id="0" onclick="select(0)"></div>
+        <div class="cell" id="1" onclick="select(1)"></div>
+        <div class="cell" id="2" onclick="select(2)"></div>
+        <div class="cell" id="3" onclick="select(3)"></div>
+        <div class="cell" id="4" onclick="select(4)"></div>
+        <div class="cell" id="5" onclick="select(5)"></div>
+        <div class="cell" id="6" onclick="select(6)"></div>
+        <div class="cell" id="7" onclick="select(7)"></div>
+        <div class="cell" id="8" onclick="select(8)"></div>
+    </div>
+</div>
+<script src=""></script>
+    </body>
+</html>
