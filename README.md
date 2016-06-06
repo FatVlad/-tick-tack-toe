@@ -1,2 +1,2 @@
 # -tick-tack-toe
-basic tick 
+basic tick-tack-toe game made up with js
